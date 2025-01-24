@@ -1,0 +1,61 @@
+drop table points;
+drop table members;
+create table members
+(
+	num number(5) primary key,
+	name varchar2(15) not null,
+	phone varchar2(15),
+	addr varchar2(20),
+	regdate date
+);
+insert into members values(1,'홍길동','010-111-1234','종로',sysdate);
+commit;
+CREATE TABLE POINT
+(
+	PNUM NUMBER(5) PRIMARY KEY, -- 포인트번호
+	NUM NUMBER(5) REFERENCES MEMBERS(NUM), -- 회원번호
+	MPOINT NUMBER(4) --포인트
+);
+CREATE SEQUENCE POINT_SEQ ;
+INSERT INTO POINT VALUES(POINT_SEQ.NEXTVAL,1,1000);
+COMMIT;
+
+-- 파라미터로 번호,이름,전화번호,주소를 전달받아 db에 저장(insert하는 프로시져- addmember를 만들고 호출해 보세요)
+CREATE OR REPLACE PROCEDURE ADDMEMBER
+(
+	NUM MEMBERS.NUM%TYPE,
+	NAME MEMBERS.NAME%TYPE,
+	PHONE MEMBERS.PHONE%TYPE,
+	ADDR MEMBERS.ADDR%TYPE
+)
+IS
+BEGIN
+	INSERT INTO MEMBERS VALUES(NUM,NAME,PHONE,ADDR,SYSDATE);
+	COMMIT;
+END ;
+/
+
+EXECUTE ADDMEMBER(32,'오라클','001','길동');
+
+
+CREATE OR REPLACE PROCEDURE DELMEMBER
+(
+	NUM1 MEMBERS.NUM%TYPE
+)
+IS
+BEGIN
+    DELETE FROM POINT WHERE NUM=NUM1;
+	DELETE FROM MEMBERS WHERE NUM=NUM1;
+	COMMIT;
+END ;
+/
+
+EXECUTE DELMEMBER(10);
+
+-- 배치프로그램 테스트를 위한 테이블
+CREATE TABLE BATCHTEST
+(
+	ID NUMBER(15) PRIMARY KEY,
+	NAME VARCHAR2(1000),
+	AGE NUMBER(5)
+);

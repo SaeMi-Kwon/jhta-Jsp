@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>join.html</title>
+</head>
+<body>
+	<form action="join.jsp">
+		아이디 <input type="text" name="id"><br>
+		비밀번호 <input type="password" name="pwd"><br>
+	<fieldset>
+		<legend>취미</legend>
+		여행 <input type="checkbox" value="여행" name="hobby">
+		독서 <input type="checkbox" value="독서" name="hobby">
+		영화 <input type="checkbox" value="영화" name="hobby">
+	</fieldset>	
+	<fieldset>
+		<legend>사는지역</legend>
+		서울 <input type="radio" value="서울" name="addr" checked="checked">
+		부산 <input type="radio" value="부산" name="addr">
+		기타 <input type="radio" value="기타" name="addr">
+	</fieldset>	
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>quiz.html</title>
+</head>
+<body>
+	<!-- sum.jsp에서 두수합을 구해서 출력해 보세요. -->
+	<form action="sum.jsp">
+		정수1 <input type="text" name="n1"><br>
+		정수2 <input type="text" name="n2"><br>
+		<input type="submit" value="두수합">
+	</form>
+
+</body>
+</html>
