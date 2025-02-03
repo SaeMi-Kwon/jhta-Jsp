@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp01" path="/jsp01" reloadable="true" source="org.eclipse.jst.jee.server:jsp01"/></Host>
+      <Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp01" path="/jsp01" reloadable="true" source="org.eclipse.jst.jee.server:jsp01"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp02_servlet" path="/jsp02_servlet" reloadable="true" source="org.eclipse.jst.jee.server:jsp02_servlet"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp03_pageMove" path="/jsp03_pageMove" reloadable="true" source="org.eclipse.jst.jee.server:jsp03_pageMove"/></Host>
     </Engine>
   </Service>
 </Server>

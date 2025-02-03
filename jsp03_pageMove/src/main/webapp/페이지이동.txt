@@ -1,0 +1,18 @@
+<< 페이지이동(***) >>
+
+1. 포워드방식(forward)
+  - request스코프에 담긴 값이 유지된다.(request,response 모두 유지됨)
+  - 이동된 url이 화면에 안보인다. (사용자는 페이지가 이동되었는지 알수없음)
+  - 포워드하는 방법
+	방법1) pageContext.forward("이동할페이지");
+	방법2) <jsp:forward page="이동할페이지"/>
+	방법3) RequestDispatcher rd=request.getRequestDispatcher("이동할페이지");
+			rd.forward(request,response);
+			
+2. 리다이렉트방식(redirect)
+  - 클라이언트가 새로 페이지를 요청한 것과 같은 방식으로 페이지가 이동됨
+  - request스코프에 담긴 값이 유지되지 않는다. (request,response가 새롭게 만들어짐)
+  - 이동된 url이 화면에 보인다.
+  - 리다이렉트하는 방법
+	response.sendRedirect("이동할url");
+	
