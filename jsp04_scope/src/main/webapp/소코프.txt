@@ -1,0 +1,26 @@
+[ jsp스코프 (***) ]
+
+1.application
+  - 모든 서블릿,jsp에서 공유하는 영역
+  - 웹서버가 종료때까지 유효한 영역
+  - 값을 저장할때는 application.setAttribute("이름","값");
+    값을 깨내올때는 Object value=application.getAttribute("이름");
+ 
+2.session (***)
+  - 웹브라우저가 종료될때까지 또는 일정시간(세션유지시간) 동안 유효한 영역
+  - 값을 저장할때는 session.setAttribute("이름","값");
+    값을 꺼내올때는 Object value=session.getAttribute("이름");
+  - 세션유지시간 설정방법
+    방법1 session.setMaxInactiveInterval(세션유지시간);  --초단위(기본 30분)
+    방법2 web.xml에서 설정  --분단위
+  	   <session-config>
+  		   <session-timeout>20</session-timeout>
+  	   </session-config>
+  	
+3.request (**)
+  - 클라이언트에 응답할때까지 유효한 영역  --일회용
+  - 값을 저장할때는 request.setAttribute("이름","값");
+    값을 꺼내올때는 Object value=request.getAttribute("이름");
+  
+4.page (지금은 사용안함)
+  - 하나의 페이지에서만 유효  --지역변수과 비슷(기본값)

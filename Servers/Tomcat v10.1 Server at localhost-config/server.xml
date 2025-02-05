@@ -61,7 +61,7 @@
          AJP  Connector: /docs/config/ajp.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" maxParameterCount="1000" port="8081" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" maxParameterCount="1000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="jsp01" path="/jsp01" reloadable="true" source="org.eclipse.jst.jee.server:jsp01"/><Context docBase="jsp02_servlet" path="/jsp02_servlet" reloadable="true" source="org.eclipse.jst.jee.server:jsp02_servlet"/><Context docBase="jsp03_pageMove" path="/jsp03_pageMove" reloadable="true" source="org.eclipse.jst.jee.server:jsp03_pageMove"/></Host>
+      <Context docBase="jsp01" path="/jsp01" reloadable="true" source="org.eclipse.jst.jee.server:jsp01"/><Context docBase="jsp02_servlet" path="/jsp02_servlet" reloadable="true" source="org.eclipse.jst.jee.server:jsp02_servlet"/><Context docBase="jsp03_pageMove" path="/jsp03_pageMove" reloadable="true" source="org.eclipse.jst.jee.server:jsp03_pageMove"/><Context docBase="jsp04_scope" path="/jsp04_scope" reloadable="true" source="org.eclipse.jst.jee.server:jsp04_scope"/><Context docBase="jsp05_mvc" path="/jsp05_mvc" reloadable="true" source="org.eclipse.jst.jee.server:jsp05_mvc"/><Context docBase="jsp06_members" path="/jsp06_members" reloadable="true" source="org.eclipse.jst.jee.server:jsp06_members"/><Context docBase="jsp07_jstl" path="/jsp07_jstl" reloadable="true" source="org.eclipse.jst.jee.server:jsp07_jstl"/></Host>
     </Engine>
   </Service>
 </Server>
