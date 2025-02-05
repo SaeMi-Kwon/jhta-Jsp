@@ -7,32 +7,19 @@
 <title>admin/insert.jsp</title>
 </head>
 <body>
-<%
-	//값 꺼내오기
-	String msg=(String)request.getAttribute("msg");
-	String id=(String)request.getAttribute("id");
-	String pwd=(String)request.getAttribute("pwd");
-	String email=(String)request.getAttribute("email");
-	
-	if(msg==null){
-		msg="";
-		id="";
-		pwd="";
-		email="";
-	}
 
-%>
+	<!-- jstl사용해서 list.jsp 만들기 -->
 	<h1>관리자 등록하기</h1>
 
 	<form action="/jsp06_members/admin/insert" method="post">
-		아이디 <input type="text" name="id" value="<%=id %>">
+		아이디 <input type="text" name="id" value="${id }">
 		
 		<!-- formaction : type =submit, image 에서만 사용가능 (form내부에서 action) -->
 		<input type="submit" value="아이디중복체크" formaction="/jsp06_members/admin/idcheck">
-		<span style="color:red; font-size:0.8em;"><%=msg %></span><br>
+		<span style="color:red; font-size:0.8em;">${msg }</span><br>
 		
-		비밀번호 <input type="password" name="pwd" value="<%=pwd %>"><br>
-		이메일 <input type="email" name="email" value="<%=email %>"><br>
+		비밀번호 <input type="password" name="pwd" value="${pwd }"><br>
+		이메일 <input type="email" name="email" value="${email }"><br>
 		<input type="submit" value="등록"><br>
 	</form>
 </body>

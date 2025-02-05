@@ -25,7 +25,7 @@
 	<c:if test="${조건식}">
 		실행할 문장
 	</c:if>
- --%>
+--%>
 
 <c:set var="id" value="admin"/>
 <c:if test="${id =='admin' }">
