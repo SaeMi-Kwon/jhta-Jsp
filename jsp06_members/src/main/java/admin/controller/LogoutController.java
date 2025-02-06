@@ -17,7 +17,7 @@ public class LogoutController extends HttpServlet{
 		//세션 영역 지우기(무효화)
 		HttpSession session = req.getSession();
 		session.invalidate();
-	
+		
 		//메인화면으로 페이지이동
 		resp.sendRedirect(req.getContextPath() + "/main.jsp");
 	}
