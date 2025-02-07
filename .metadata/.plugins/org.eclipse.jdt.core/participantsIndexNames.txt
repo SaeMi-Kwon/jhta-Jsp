@@ -15,8 +15,12 @@ C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\505047526.inde
 \jsp05_mvc\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3842182041.index
 \jsp08_board2\src\main\java
+C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3543875827.index
+\jsp09_board\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3519113805.index
 \jsp07_jstl\src\main\java
+C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1907413108.index
+\jsp09_board(답변형)\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3511634502.index
 \jsp07_jstl\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2099825797.index
@@ -35,6 +39,8 @@ C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1424862054.ind
 \jsp08_board\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2160884338.index
 \jsp02_servlet\src\main\java
+C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3200833531.index
+\jsp08_board(페이징)\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4018944169.index
 \jsp04_scope\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3765268484.index
@@ -43,6 +49,10 @@ C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1570291509.ind
 \jsp04_scope\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2766110282.index
 \jsp08_board2\src\main\java
+C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2764429720.index
+\jsp08_board(페이징)\src\main\java
+C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\100518150.index
+\jsp09_board(답변형)\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2266183772.index
 \jsp05_mvc\src\main\java
 C:\2407\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1928222189.index
