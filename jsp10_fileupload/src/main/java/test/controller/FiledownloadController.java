@@ -32,18 +32,24 @@ public class FiledownloadController extends HttpServlet{
 		//////////////////////////   1. 다운로드 창으로 응답하기   ////////////////////////////////
 		//다운로드할 창에 보여질 파일이름(파일명이 한글인 경우 깨질수 있으므로 utf-8로 인코딩한다.)
 		String filename=URLEncoder.encode(orgfilename,"utf-8");  //import java.net.URLEncoder;
-		// ->인코딩으로 변환할경우 공백이 +로 바뀐다
+		// -> 인코딩으로 변환할경우 공백이 +로 바뀐다
 		
-		//+문자를 공백문자(%20)유니코드으로 변환하기
+		//+문자를 공백문자(%20)으로 변환하기
 		filename=filename.replaceAll("\\+", "%20");
 		
-		//다운로드창으로 응답하겠다
-		resp.setContentType("application/octet-stream");
+		//다운로드창으로 응답하겠다 (클라이언트가 파일을 실제로 다운로드하도록 유도)
+		//resp.setContentType("text/html;charset=utf-8"); <- 만약 웹에서 해석이 안되는 타입이면 다운로드함
+		resp.setContentType("application/octet-stream");  //8bit의 바이너리 데이터로 구성된 파일
 		
 		//전송할 파일크기 설정
+		//파일 다운로드가 시작되기 전에 클라이언트가 파일의 전체 크기를 파악할 수 있도록 하며, 
+		//다운로드 진행 상황을 표시할 때 유용
 		resp.setContentLengthLong(filesize);
 		
 		//다운로드창에 보여질 파일명 지정
+		//Content-Disposition : (헤더) 클라이언트가 응답 데이터를 어떻게 처리할지에 대한 정보를 제공
+		//attachment : 응답 데이터를 파일 다운로드로 처리하라고 브라우저에 지시
+		//filename : 파일의 이름을 지정
 		resp.setHeader("Content-Disposition", "attachment;filename=" + filename);
 		
 		//////////////////////////////////////////////////////////////////////////////////////

@@ -57,10 +57,10 @@ public class FileuploadController extends HttpServlet{
 			//저장할 파일명 구하기(중복되지 않는 파일명으로 만들기)
 			String savefilename=UUID.randomUUID() + "_" + orgfilename;
 			
-			//전송된 파일을 서버에 복수(출력)하기 위한 스트림 객체 (서버에 저장)
+			//전송된 파일을 서버에 복사(출력)하기 위한 스트림 객체 (서버에 저장)
 			FileOutputStream fos=new FileOutputStream(path + File.separator + savefilename); 
 			
-			//전송된 파일을 읽어오기 위한 스트림 객체 (사용자가 보내온)
+			//전송된 파일을 읽어오기 위한 스트림 객체 (사용자가 전송한파일 읽어오기)
 			InputStream is=part.getInputStream();
 			
 			//##파일복사
@@ -76,11 +76,11 @@ public class FileuploadController extends HttpServlet{
 			is.close();
 			fos.close();
 			
-			//파일크기 구하기
+			//전송된 파일크기 구하기(얻어오기)
 			long filesize=part.getSize();
 			
-		
-		//-----------------2.업로드된 파일정보를 db에 저장하기----------------//
+			
+		//---------------  2.업로드된 파일정보를 db에 저장하기 --------------//
 			FileInfoDTO dto=
 					new FileInfoDTO(0,writer,title,content,orgfilename,savefilename,filesize);
 			
@@ -99,9 +99,7 @@ public class FileuploadController extends HttpServlet{
 		
 		//------------------------------------------------------------//
 		
-		
 		req.getRequestDispatcher("/file/result.jsp").forward(req, resp);
-		
 		
 	}
 	
