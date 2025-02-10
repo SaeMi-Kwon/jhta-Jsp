@@ -37,8 +37,9 @@
 			<a href="${cp }/board/insert?num=${detail.num}&ref=${detail.ref}&
 			lev=${detail.lev}&step=${detail.step}">답변</a>
 		</td>
+		
 	</tr>
-	
 </table>
+<a href="${pageContext.request.contextPath }/">메인페이지</a>
 </body>
 </html>

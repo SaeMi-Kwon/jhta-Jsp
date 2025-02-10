@@ -15,8 +15,7 @@ public class DeleteController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int num=Integer.parseInt(req.getParameter("num"));
-		
+		int num=Integer.parseInt(req.getParameter("num"));	
 		
 		BoardDao dao=BoardDao.getInstance();
 		
@@ -24,7 +23,7 @@ public class DeleteController extends HttpServlet{
 		
 		System.out.println("삭제:" + num);
 		
-		resp.sendRedirect(req.getContextPath() + "/board/list.jsp");
+		resp.sendRedirect(req.getContextPath() + "/board/list");
 		
 	}
 }

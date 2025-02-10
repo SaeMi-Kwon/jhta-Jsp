@@ -284,4 +284,29 @@ public class BoardDao {
 			JDBCUtil.close(con, pstmt, null);
 		}
 	}
+	
+	public int update(BoardDto dto) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			con=JDBCUtil.getCon();
+			String sql="update board set title=?,content=? where num=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, dto.getTitle());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setInt(3, dto.getNum());
+			
+			int n=pstmt.executeUpdate();
+
+			return n;
+			
+		}catch(SQLException s) {
+			System.out.println(s.getMessage());
+			return -1;
+		
+		}finally {
+			JDBCUtil.close(con, pstmt, null);
+		}
+	}
 }
