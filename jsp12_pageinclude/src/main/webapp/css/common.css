@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+*{margin:0}
+
+.wrap{
+	width: 80%;
+	margin: auto;
+}
+
+.header{
+	width: 100%;
+	height: 200px;
+	background-color: #ffff80;
+	
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header ul{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	margin-right: 50px;
+}
+
+.header ul li{
+	list-style: none;
+}
+
+.content{
+	width:100%;
+	height: 500px;
+	background-color: #00d9ff;
+}
+
+.footer{
+	width:100%;
+	height: 200px;
+	background-color: silver;
+}
