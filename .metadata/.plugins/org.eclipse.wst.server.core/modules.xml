@@ -7,6 +7,8 @@
   <module moduleId="org.eclipse.jst.jee.server:jsp03_pageMove" serverId="Tomcat v10.1 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:jsp09_board(답변형)" serverId="Tomcat v10.1 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:jsp04_scope" serverId="Tomcat v10.1 Server at localhost (2)"/>
+  <module moduleId="org.eclipse.jst.jee.server:jsp13_cookie" serverId="Tomcat v10.1 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:jsp14_DBCP" serverId="Tomcat v10.1 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:jsp01" serverId="Tomcat v10.1 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:jsp07_jstl" serverId="Tomcat v10.1 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:jsp08_board" serverId="Tomcat v10.1 Server at localhost"/>
