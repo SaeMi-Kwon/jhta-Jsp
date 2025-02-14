@@ -61,7 +61,7 @@
          AJP  Connector: /docs/config/ajp.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" maxParameterCount="1000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" maxParameterCount="1000" port="8081" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="jsp14_DBCP" path="/jsp14_DBCP" reloadable="true" source="org.eclipse.jst.jee.server:jsp14_DBCP"/><Context docBase="jsp06_members" path="/jsp06_members" reloadable="true" source="org.eclipse.jst.jee.server:jsp06_members"/></Host>
+      <Context docBase="project" path="/project" reloadable="true" source="org.eclipse.jst.jee.server:project"/><Context docBase="jsp08_board(페이징)" path="/jsp08_board(페이징)" reloadable="true" source="org.eclipse.jst.jee.server:jsp08_board(페이징)"/><Context docBase="jsp13_cookie" path="/jsp13_cookie" reloadable="true" source="org.eclipse.jst.jee.server:jsp13_cookie"/></Host>
     </Engine>
   </Service>
 </Server>

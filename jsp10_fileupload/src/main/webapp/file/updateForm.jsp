@@ -18,8 +18,8 @@
 	<input type="text" name="title" value="${dto.title }"><br>
 	내용<br>
 	<textarea name="content" rows="5" cols="50">${dto.content }</textarea><br>
-	첨부파일
 	기존파일 : ${dto.orgfilename } <br>
+	첨부파일
 	<input type="file" name="fileUpdate"><br>
 	<input type="submit" value="전송">
 </form>
