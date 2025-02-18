@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3/2.html</title>
+<script>
+    function getData(){
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                const resp=xhr.responseText;
+                const mem=JSON.parse(resp);
+                
+                const str= `회원번호: ${mem.num} <br>
+                	회원이름: ${mem.name}<br>
+                	전화번호: ${mem.phone}<br>
+                	주소: ${mem.addr}<br>
+                	가입일: ${mem.regdate}<br>
+                `;
+                
+                document.getElementById("result").innerHTML=str;
+            }
+        }
+        xhr.open('get','member.jsp',true);   //true 생략가능
+        xhr.send();
+    }
+
+
+</script>
+</head>
+<body>
+    <input type="button" value="json얻어오기" onclick="getData()">
+    <div id="result"></div>
+
+</body>
+</html>

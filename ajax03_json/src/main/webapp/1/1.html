@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1/1.html</title>
+<script>
+	/*
+		[ JSON ]
+		- 서로 다른 프로그래밍 언어간의 데이터 통신을 위한 표기법(읽고 쓰고 쉬운 표현법)
+		- 경량의 데이터를 교환하는 방식으로 인터넷에서 데이터를 주고 받을때 표현하는 방법
+		- name/value 형태의 한쌍으로 표현된다.
+	*/
+
+	const user={"id":"hello","password":"1234","age":10};
+	console.log(user.id,user.password,user.age);
+	
+	//배열
+	const users=[
+		{"id":"hello","password":"1234","age":10},
+		{"id":"test","password":"0000", "age":20},
+		{"id":"admin","password":"1111", "age":30}
+	];
+
+	//users를 출력해 보세요.
+	// for(let i=0;i<users.length;i++){
+	// 	console.log("id:",users[i].id);
+	// 	console.log("password:",users[i].password);
+	// 	console.log("age:",users[i].age);
+	// }
+
+	console.log("forEach사용");
+	users.forEach(function(user){
+		console.log("id:",user.id);
+		console.log("password:",user.password);
+		console.log("age:",user.age);
+	});
+
+	const mem={
+		"grade":"gold",
+		"list":[
+			{"name":"홍길동","email":"hong@"},
+			{"name":"이길동","email":"lee@"},
+			{"name":"삼길동","email":"sam@"}
+		]
+	}
+	
+	console.log(mem.grade);
+
+	// console.log(mem.list[0].name);
+	// console.log(mem.list[1].name);
+	
+	//전체 회원 출력해 보세요
+	// for(let i=0;i<mem.list.length;i++){
+	// 	console.log("이름:",mem.list[i].name);
+	// 	console.log("이메일:",mem.list[i].email);
+	// }
+
+	mem.list.forEach(function(m){
+		console.log(m.name,m.email);
+	});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

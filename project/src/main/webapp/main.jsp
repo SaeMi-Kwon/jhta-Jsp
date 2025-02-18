@@ -19,6 +19,7 @@
 	<c:choose>
 		<c:when test="${empty sessionScope.id }">
 			<li><a href="${path }/member/login">로그인</a></li>
+			
 		</c:when>
 		<c:otherwise>
 			<li><a href="${path }/member/mypage">마이페이지</a></li>

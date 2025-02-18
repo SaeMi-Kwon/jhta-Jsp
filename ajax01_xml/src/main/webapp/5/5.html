@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5/5.html</title>
+<style>
+    #find{ width: 200px;}
+    #result{
+        width: 195px;
+        border: 1px solid blue;
+        height: 100px; 
+        padding: 5px; 
+        font-size: 10px;
+        display: none;
+    }
+</style>
+<script>
+    function getList(){
+    	const div=document.getElementById("result");  //제시어가 출력될 div
+        const find=document.getElementById("find").value;
+    	
+        if(find.trim()==""){  //빈 검색어일때 전체 검색어가 안나오게 하기위함
+        	div.innerHTML="";
+        	div.style.display="none";
+        	return;
+        }
+        
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                //alert("success");
+                const xml=xhr.responseXML;
+                const list=xml.getElementsByTagName("str");
+                let str="";
+                
+                if(list.length>0){
+                	for(let i=0;i<list.length;i++){
+                		const s=list[i].textContent;
+                		//str += "<a href='javascript:insertText("s")'>" + s + "</a><br>";
+                		str += "<a href='javascript:insertText(\"" + s + "\")'>" + s + "</a><br>";
+                	}
+                	div.innerHTML=str;
+                	div.style.display="block";
+                	
+                }else{
+                	div.innerHTML="";
+                	div.style.display="none";
+                }
+            }
+        }
+        xhr.open('get','suggest.jsp?find=' + find, true);
+        xhr.send();
+    }
+
+    function insertText(str){
+    	console.log(str);
+        //파라미터로 전송된 문자열을 text에 넣기
+        const textInput=document.getElementById("find");
+        textInput.value=str;
+        //div를 화면에서 숨기기(내용지우고 화면에서 숨기기)
+        const div=document.getElementById("result");
+        div.innerHTML="";  
+        div.style.display="none";
+    }
+
+</script>
+</head>
+<body>
+    <input type="text" id="find" onkeyup="getList()">
+    <input type="button" value="검색"><br>
+    <div id="result"></div>
+</body>
+</html>

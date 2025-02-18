@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2/2.html</title>
+<script>
+    function getData(){
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                //json은 응답결과를 responseText으로 얻어온다
+                const result=xhr.responseText;   
+            
+                //const s='{"id":"hello","name":"김길동","age":20}';
+                //응답결과 타입이 String이므로 json객체로 변환해 준다.
+                const json=JSON.parse(result);
+                const data="id:" + json.id + " 이름:" + json.name + " 나이:" + json.age;
+                document.getElementById("result").innerHTML=data;
+            
+            }
+        }
+        xhr.open('get','member.json',true);   //true 생략가능
+        xhr.send();
+    }
+
+    function getList(){
+        const xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                const list=xhr.responseText;
+                const json=JSON.parse(list);
+
+                let data="등급:" + json.grade + "<br>";
+
+                const gl= document.getElementById("goldList");
+                json.list.forEach(function(m){ 
+                    data+= "이름:" + m.name + ",이메일:" + m.email + "<br>" ;
+                });
+
+                gl.innerHTML=data;
+            }
+        }
+        xhr.open('get','list.json',true);
+        xhr.send();
+    }
+
+</script>
+</head>
+<body>
+    <input type="button" value="json얻어오기" onclick="getData()">
+    <div id="result"></div>
+
+    <input type="button" value="gold회원목록" onclick="getList()">
+    <div id="goldList"></div>
+</body>
+</html>

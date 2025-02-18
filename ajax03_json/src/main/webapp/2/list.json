@@ -1,0 +1,8 @@
+{
+    "grade":"gold",
+    "list":[
+        {"name":"홍길동","email":"hong@"},
+        {"name":"이길동","email":"lee@"},
+        {"name":"삼길동","email":"sam@"}
+    ]
+}

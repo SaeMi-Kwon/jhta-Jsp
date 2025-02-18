@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>6/quiz.html</title>
+<script>
+	function findId(){
+		const email=document.getElementById("email").value;
+		const pwd=document.getElementById("pwd").value;
+		const div=document.getElementById("result");
+
+		const xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				//alert("success");
+				const xml=xhr.responseXML;
+				const id=xml.getElementsByTagName("id")[0].textContent;
+			
+				if(id.trim() !=""){
+					div.innerHTML="회원님의 아이디: " + id;
+				}else{
+					div.innerHTML="해당정보가 존재하지 않습니다."
+				}
+			}
+		}
+
+		xhr.open('get','findid.jsp?email='+ email + '&pwd=' + pwd, true);
+		xhr.send();
+	}
+
+</script>
+</head>
+<body>
+	<!-- 이메일과 비밀번호를 입력받아 해당 아이디 찾기 구현해 보세요 (ajax) -->
+	<h1>아이디찾기</h1>
+	이메일 <input type="text" id="email"><br>
+	비밀번호 <input type="password" id="pwd"><br>
+	<input type="button" value="찾기" onclick="findId()">
+	<div id="result"></div>
+</body>
+</html>
