@@ -23,7 +23,7 @@
  
 	let xhr= null;
 	function getData(){
-		//1. XMLHttpRequest객체 생성하기
+		//1. XMLHttpRequest객체 생성하기 (객체는 서버와 상호작용할때 사용)
 		xhr=new XMLHttpRequest();
 		//2. 콜백함수 설정
 		xhr.onreadystatechange=callback;

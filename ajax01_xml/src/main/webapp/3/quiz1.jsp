@@ -4,34 +4,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>3/quiz1.jsp</title>
-
+<title>Insert title here</title>
 <script type="text/javascript">
-	let xhr=null;
+	var xhr;
 	function getResult(){
-		const n1=document.getElementById("num1").value;
-		const n2=document.getElementById("num2").value;
-		const op=document.getElementById("oper").value;
+		var num1=document.getElementById("num1").value;
+		var num2=document.getElementById("num2").value;
+		var oper=document.getElementById("oper").value;	
 		xhr=new XMLHttpRequest();
 		xhr.onreadystatechange=callback;
-		xhr.open("get","calc.jsp?n1="+n1+"&op="+ op + "&n2="+n2,true);
+		xhr.open("get","calc.jsp?num1="+num1 +"&num2="+num2+"&oper="+ oper,true);
 		xhr.send();
 	}
-
 	function callback(){
 		if(xhr.readyState==4 && xhr.status==200){
+			//alert("success");
 			var data=xhr.responseXML;
-			var num1=data.getElementByTagName("num1")[0].firstChild.nodeValue;
-			var num2=data.getElementByTagName("num2")[0].firstChild.nodeValue;
-			var num3=data.getElementByTagName("num3")[0].firstChild.nodeValue;
-			
+			var num1=data.getElementsByTagName("num1")[0].firstChild.nodeValue;
+			var num2=data.getElementsByTagName("num2")[0].firstChild.nodeValue;
+			var num3=data.getElementsByTagName("num3")[0].firstChild.nodeValue;
+			var oper=data.getElementsByTagName("oper")[0].firstChild.nodeValue;
+			var div=document.getElementById("result");
+			div.innerHTML=num1 + oper + num2 + "=" + num3;
 		}
 	}
-
 </script>
 </head>
 <body>
-<p>두 정수를 입력후 계산 버튼을 누르면 ajax를 사용해서 두수합을 div#result에 출력되도록 해보세요.</p>
+<p>두 정수를 입력후 계산 버튼을 누르면 ajax를 사용해서 두수합을 div#result에 출력되도록 해보세요</p>
 <input type="text" id="num1" size="10">
 <select id="oper">
 	<option value="1">+</option>
@@ -42,6 +42,7 @@
 <input type="text" id="num2" size="10">
 
 <input type="button" value="계산" onclick="getResult()">
-<div id="result"></div>
-</body>
+<div id="result">
+</div>
+
 </html>

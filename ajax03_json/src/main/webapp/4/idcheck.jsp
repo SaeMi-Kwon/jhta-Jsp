@@ -23,12 +23,12 @@
     
 
     //결과를 json로 응답하기
-    response.setContentType("application/json; charset=UTF-8");
-	PrintWriter pw=response.getWriter();
+    response.setContentType("text/plain;charset=utf-8");
 	
 	JSONObject json=new JSONObject();
 	json.put("exist",exist);
-
+	
+	PrintWriter pw=response.getWriter();
 	pw.print(json.toString());
 	pw.close();
 %>

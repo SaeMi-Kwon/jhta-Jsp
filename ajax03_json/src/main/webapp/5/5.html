@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5/5.html</title>
+<script type="text/javascript">
+
+	document.getElementById("btn1").onclick=function(){
+		const div=document.getElementById("memberList");
+        const xhr=new XMLHttpRequest();
+        xhr.onload=function(){
+            const resp=xhr.responseText;
+            const json=JSON.parse(resp);
+            const list=json.list;
+            
+            list.forEach(function(mem){
+            	div.innerHTML += `회원번호:${mem.num} 이름:${mem.name} 전화번호:${mem.phone} 주소:${mem.addr} 등록일:${mem.regdate}`;
+            });   
+        }
+        xhr.open('get','list.jsp',true);
+        xhr.send();
+    }
+	
+
+	function showList(){
+	    const ml=document.getElementById("memberList");
+	    const xhr=new XMLHttpRequest();
+	    xhr.onreadystatechange=function(){  
+	        if(xhr.readyState==4 && xhr.status==200){
+	            const resp=xhr.responseText;
+	            const json=JSON.parse(resp);
+	            const list=json.list;
+	            
+	            let str="";
+	            for(let i=0;i<list.length;i++){
+	            	//const mem=json.list[i];
+	                //ml.innerHTML+= "번호:" + mem.num + ",이름:" + mem.name + 
+	                //",전화번호:" + mem.phone + ",주소:" + mem.addr +
+	                //",등록일:" + mem.regdate + "<br>"; 
+	                
+	                str += `회원번호: ${list[i].num} <br>
+	                	회원이름: ${list[i].name}<br>
+	                	전화번호: ${list[i].phone}<br>
+	                	주소: ${list[i].addr}<br>
+	                	가입일: ${list[i].regdate}<br>
+	                `;    
+	            }
+	            ml.innerHTML=str;
+	        }
+	    }
+	    xhr.open('get','list.jsp',true);
+	    xhr.send();
+	}
+
+
+</script>
+</head>
+<body>
+<!-- 버튼을 클릭하면 json데이터 얻어와 div#memberList에 출력해 보세요 -->
+<input type="button" value="회원목록" id="btn1" onclick="showList()">
+<div id="memberList"></div>
+
+</body>
+</html>
