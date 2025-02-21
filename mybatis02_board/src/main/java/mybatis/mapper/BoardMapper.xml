@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.BoardMapper">
+
+	<insert id="insert" parameterType="board">
+		insert into myboard values(myboard_seq.nextval,#{writer},#{title},#{content},sysdate)
+	</insert>
+	
+	<select id="selectList" resultType="board" parameterType="hashmap">
+		select * from myboard 
+		<if test="field!=null">
+			where ${field} like '%'||#{keyword}||'%'
+		</if>
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from myboard where num=#{num}
+	</delete>
+</mapper>

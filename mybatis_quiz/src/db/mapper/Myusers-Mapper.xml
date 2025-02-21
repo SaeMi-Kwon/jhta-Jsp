@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="db.mapper.Myusers-Mapper">
+	
+	<insert id="userInsert" parameterType="members.dto.MyusersDto">
+		insert into myusers values(#{id},#{pwd},#{email},sysdate)
+	</insert>	
+	
+	<delete id="userDelete" parameterType="String">
+		delete from myusers where id=#{id}
+	</delete>
+
+	<update id="userUpdate" parameterType="members.dto.MyusersDto">
+		update myusers set pwd=#{pwd},email=#{email} where id=#{id}
+	</update>
+
+	<select id="idInfo" parameterType="String" resultType="members.dto.MyusersDto">
+		select * from myusers where id=#{id}
+	</select>
+	
+	<select id="showInfo" resultType="members.dto.MyusersDto">
+		select * from myusers
+	</select>
+	
+</mapper>

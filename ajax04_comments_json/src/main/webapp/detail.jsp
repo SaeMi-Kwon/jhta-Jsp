@@ -56,7 +56,7 @@
 				json.list.forEach(function(comm){
 					const div=document.createElement("div");
 					const str="작성자:" + comm.id + "<br>내용:" + comm.comments + "<br>" +
-					"<a href='javascript:delComm("+ comm.num +")'>삭제</a>";
+					"<a href='javascript:delComm("+ pageNum + "," +comm.num +")'>삭제</a>";
 					div.innerHTML=str;
 					div.className="comm";
 					commList.appendChild(div);
@@ -116,7 +116,7 @@
 			xhr.send(param);
 		});
 		
-		function delComm(num){
+		function delComm(page,num){
 			const xhr=new XMLHttpRequest();
 
 			xhr.onload=function(){
@@ -125,7 +125,7 @@
 				const result=json.result;
 
 				if(result){
-					getList(1);
+					getList(page);
 					//aleart("댓글삭제 성공");
 				}else{
 					aleart("댓글삭제 실패!");

@@ -36,7 +36,9 @@ public class CommentsListController extends HttpServlet{
 		//페이지갯수구하기 - 한페이지에 글은 5개씩 보임
 		int pageCount= (int)Math.ceil(dao.getCount(mnum)/5.0);
 		
-		if(pageNum>pageCount) pageNum=pageCount;
+		//현재 페이지 번호가 총 페이지수 보다 클 때
+		//사용자가 요청한 페이지번호가 총 페이지수 보다 크면, 마지막 페이지로 자동으로 설정
+		if(pageNum>pageCount) pageNum=pageCount; 
 		
 		int startRow=(pageNum-1)*5+1;   
 		int endRow=startRow+4;

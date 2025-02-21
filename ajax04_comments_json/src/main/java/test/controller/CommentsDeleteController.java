@@ -14,6 +14,7 @@ import test.dao.CommentsDao;
 
 @WebServlet("/comments/delete")
 public class CommentsDeleteController extends HttpServlet{
+	//http://localhost:8081/ajax04_comments_json/comments/delete?num=63
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
