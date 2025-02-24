@@ -34,7 +34,7 @@
 			<td>${dto.title }</td>
 			<td>${dto.content }</td>
 			<td>${dto.regdate }</td>
-			<th><a href="${pageContext.request.contextPath }/board/update">수정</a></th>
+			<th><a href="${pageContext.request.contextPath }/board/update?num=${dto.num}">수정</a></th>
 		</tr>
 	</c:forEach>
 </table>

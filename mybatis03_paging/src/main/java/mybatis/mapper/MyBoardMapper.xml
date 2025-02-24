@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.MyBoardMapper">
+	
+	<!-- 반복되는 쿼리를 메소드처럼 분리하여 필요한 곳에 삽입해준다 -->
+	<sql id="search">
+		<if	test="field !=null and field!='' ">
+			where ${field} like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+
+	<select id="list" parameterType="hashmap" resultType="board">
+		select * from(
+			select b.*,rownum rn from(
+				select * from myboard 
+				<include refid="search"/>
+				order by num desc
+			)b
+		<![CDATA[	
+		)where rn>=#{startRow} and rn<=#{endRow}
+		]]>
+	</select>
+
+	<select id="getCount" resultType="int">
+		select nvl(count(*),0) cnt from myboard
+		<include refid="search"/>
+	</select>
+
+</mapper>

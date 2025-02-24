@@ -18,4 +18,33 @@
 	<delete id="delete" parameterType="int">
 		delete from myboard where num=#{num}
 	</delete>
+	
+	<select id="getInfo" parameterType="int" resultType="board">
+		select * from myboard where num=#{num}
+	</select>
+	
+	<update id="update" parameterType="board">
+		update myboard 
+		<set>
+			<if test="title != null">title=#{title},</if>
+			<if test="content != null">content=#{content}</if>
+		</set>  
+		where num=#{num}
+	</update>
+	
+	<select id="searchList" resultType="board" parameterType="hashmap">
+		select * from myboard
+		<where>
+		<if test="writer !=null">
+			writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="title !=null">
+			or title like '%'||#{keyword}||'%'
+		</if>
+		<if test="content !=null">
+			or content like '%'||#{keyword}||'%'
+		</if>	
+		</where>
+	</select>
+	
 </mapper>

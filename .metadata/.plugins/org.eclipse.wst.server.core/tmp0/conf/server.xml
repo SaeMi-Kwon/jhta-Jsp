@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mybatis02_board" path="/mybatis02_board" reloadable="true" source="org.eclipse.jst.jee.server:mybatis02_board"/></Host>
+      <Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mybatis03_paging" path="/mybatis03_paging" reloadable="true" source="org.eclipse.jst.jee.server:mybatis03_paging"/><Context docBase="C:\2407\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\mybatis02_board" path="/mybatis02_board" reloadable="true" source="org.eclipse.jst.jee.server:mybatis02_board"/></Host>
     </Engine>
   </Service>
 </Server>

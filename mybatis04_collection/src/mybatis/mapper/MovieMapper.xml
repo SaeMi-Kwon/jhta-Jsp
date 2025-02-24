@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.MovieMapper">
+
+	<resultMap type="test.dto.MovieDTO" id="selectMovie">
+		<!-- mnum(column)이라는 컬럼과 멤버변수(property)mnum과 매핑해라 -->
+		<id column="mnum" property="mnum"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="director" property="director"/>
+	</resultMap>
+	
+	<resultMap type="test.dto.MovieCommentsDTO" id="MovieComments">
+		<id column="mnum" property="mnum"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="director" property="director"/>
+		<collection property="commentsList" ofType="test.dto.CommentsDTO">
+			<id column="num" property="num"/>
+			<result column="mnum" property="mnum"/>
+			<result column="id" property="id"/>
+			<result column="comments" property="comments"/>
+		</collection>
+	</resultMap>
+	
+	
+	<select id="select" resultMap="selectMovie">
+		select * from movie
+	</select>
+	
+	<select id="movieComments" resultMap="MovieComments">
+		select m.*,c.num,c.mnum,c.id,c.comments
+		from movie m left join comments c
+		on m.mnum=c.mnum
+	</select>
+	
+</mapper>

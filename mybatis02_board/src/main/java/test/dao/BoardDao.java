@@ -61,4 +61,44 @@ public class BoardDao {
 		}
 	}
 	
+	
+	public Board getInfo(int num){
+		SqlSession sqlSession=null;
+			
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			Board dto=sqlSession.selectOne(NAMESPACE + ".getInfo", num);
+			return  dto;
+				
+		}finally {
+			if(sqlSession!=null) sqlSession.close();
+		}
+	}
+	
+	public int update(Board dto) {
+		SqlSession sqlSession=null;
+		
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			int n=sqlSession.delete(NAMESPACE + ".update", dto);
+			sqlSession.commit();
+			return n;
+			
+		}finally {
+			if(sqlSession!=null) sqlSession.close();
+		}
+	}
+	
+	public List<Board> searchList(HashMap<String,String> map){
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			List<Board> list=sqlSession.selectList(NAMESPACE + ".searchList",map);
+			return list;
+			
+		}finally {
+			if(sqlSession!=null) sqlSession.close();
+		}
+		
+	}
 }

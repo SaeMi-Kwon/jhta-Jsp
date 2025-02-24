@@ -11,6 +11,7 @@
 		<!-- 글등록기능/글목록 기능 완성해 보세요 -->
 		<li><a href="${pageContext.request.contextPath }/board/insert">글등록</a></li>
 		<li><a href="${pageContext.request.contextPath }/board/list">글목록</a></li>
+		<li><a href="${pageContext.request.contextPath }/board/searchList">검색</a></li>
 	</ul>
 </body>
 </html>
