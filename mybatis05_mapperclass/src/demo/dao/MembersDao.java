@@ -13,18 +13,14 @@ public class MembersDao {
 	private SqlSessionFactory sqlSessionFactory=SqlSessionFactoryService.getSqlSessionFactory();
 	
 	public int insert(MembersDto dto) {
-		SqlSession sqlSession=null;
 		
-		try {
-			sqlSession=sqlSessionFactory.openSession();
+		//try(){}묶어주면 sqlSession.close() 처리를 안해줘도 된다.
+		try (SqlSession sqlSession=sqlSessionFactory.openSession()){
 			//Mapper클래스 얻어오기
 			MembersMapper membersMapper=sqlSession.getMapper(MembersMapper.class);
 			int n=membersMapper.insert(dto);
 			sqlSession.commit();
 			return n;
-			
-		}finally {
-			if(sqlSession!=null) sqlSession.close();
 		}
 	}
 	

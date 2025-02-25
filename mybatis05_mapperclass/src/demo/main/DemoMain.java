@@ -10,7 +10,7 @@ public class DemoMain {
 		MembersDao dao=new MembersDao();
 		
 		//insert
-//		int n=dao.insert(new MembersDto(2,"demo","010-1245-1230","seoul",null));
+//		int n=dao.insert(new MembersDto(90,"demo","010-1245-1230","seoul",null));
 //		System.out.println(n + "명의 회원이 등록됨");
 		
 		//delete

@@ -12,18 +12,13 @@ import mybatis.service.SqlSessionFactoryService;
 public class MovieDao {
 	private SqlSessionFactory sqlSessionFactory=SqlSessionFactoryService.getSqlSessionFactory();
 	
+	//try(){}묶어주면 sqlSession.close() 처리를 안해줘도 된다.
 	public int insert(MovieDTO dto) {
-		SqlSession sqlSession=null;
-		
-		try {
-			sqlSession=sqlSessionFactory.openSession();
+		try (SqlSession sqlSession=sqlSessionFactory.openSession()){
 			MovieMapper movieMapper=sqlSession.getMapper(MovieMapper.class);
 			int n=movieMapper.insert(dto);
 			sqlSession.commit();
-			return n;
-			
-		}finally {
-			if(sqlSession!=null) sqlSession.close();
+			return n;		
 		}
 	}
 	

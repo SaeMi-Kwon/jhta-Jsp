@@ -29,6 +29,7 @@ public class MovieTestClass {
 	@Test
 	public void MovieDaoDelete() {
 		MovieDao dao=new MovieDao();
+		
 		int n=dao.delete(42);
 		assertEquals(n, 1);
 	}
