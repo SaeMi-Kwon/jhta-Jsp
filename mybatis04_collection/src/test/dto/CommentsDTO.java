@@ -46,6 +46,11 @@ public class CommentsDTO {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+
+	@Override
+	public String toString() {
+		return "CommentsDTO [num=" + num + ", mnum=" + mnum + ", id=" + id + ", comments=" + comments + "]";
+	}
 	
 	
 }

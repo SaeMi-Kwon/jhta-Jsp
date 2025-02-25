@@ -9,7 +9,6 @@ create table movie(
 	title varchar2(50),
 	content varchar2(100),
 	director varchar2(20)
-
 );
 
 create table comments(

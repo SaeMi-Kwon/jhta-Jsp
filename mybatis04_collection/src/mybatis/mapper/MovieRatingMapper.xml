@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.MovieRatingMapper">
+
+	<!-- type="test.dto.MovieRatingDTO"를 movierating로 config에서 alias설정함 -->
+	<resultMap type="movierating" id="selectMovieRating">
+		<id column="mnum" property="mnum"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="director" property="director"/>
+		
+		<!-- 1:1관계일때는 association 설정 / 1:N관계일때는 collection 설정 -->
+		<association property="ratingDto" javaType="test.dto.MratingDTO">
+			<id column="num" property="num"/>
+			<result column="mnum" property="mnum"/>
+			<result column="rating" property="rating"/>
+			<result column="audience" property="audience"/>
+		</association>
+	</resultMap>
+
+	<select id="movieRating" resultMap="selectMovieRating">
+		select * from 
+		movie m left join mrating r
+		on m.mnum=r.mnum
+	</select>
+	
+	<select id="movieInfo" resultMap="selectMovieRating" parameterType="int">
+		select m.mnum,m.title,m.content,m.director,r.rating,r.audience from 
+		movie m join mrating r
+		on m.mnum=r.mnum
+		where m.mnum=#{mnum}
+	</select>
+	
+	
+	
+	<resultMap type="test.dto.MovieTotalDTO" id="movieAll">
+		<id column="mnum" property="mnum"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="director" property="director"/>
+		
+		<!-- 1:1관계일때는 association 설정 -->
+		<association property="ratingDto" javaType="test.dto.MratingDTO">
+			<id column="num" property="num"/>
+			<result column="mnum" property="mnum"/>
+			<result column="rating" property="rating"/>
+			<result column="audience" property="audience"/>
+		</association>
+		
+		<!-- 1:N관계일때는 collection 설정 -->
+		<collection property="commentsDto" ofType="test.dto.CommentsDTO">
+			<id column="num" property="num"/>
+			<result column="mnum" property="mnum"/>
+			<result column="id" property="id"/>
+			<result column="comments" property="comments"/>
+		</collection>
+	</resultMap>
+	
+	<select id="movieTotal" resultMap="movieAll">
+		<!-- m.*, r.*, c.*  : *는 지양해야한다.
+			-> 오류  :하나의 결과에만 매핑되게 되어 여러 결과가 아닌 하나의 결과만 반환될수있다.
+		 -->
+		select m.*, c.*, r.*
+		from movie m left join mrating r
+		on m.mnum=r.mnum
+		left join comments c
+		on m.mnum=c.mnum
+	</select>
+	
+</mapper>
