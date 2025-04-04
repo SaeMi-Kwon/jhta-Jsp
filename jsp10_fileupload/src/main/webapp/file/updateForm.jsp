@@ -7,10 +7,12 @@
 <title>file/updateForm</title>
 </head>
 <body>
+
 <h1>글 수정하기</h1>
 <form action="<%=request.getContextPath() %>/file/update" 
 		enctype="multipart/form-data" method="post">
 	파일번호<br>
+	
 	<input type="text" name="filenum" value="${dto.filenum }" readonly="readonly"><br>
 	작성자<br>
 	<input type="text" name="writer" value="${dto.writer }" readonly="readonly"><br>

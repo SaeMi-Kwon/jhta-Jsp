@@ -62,12 +62,14 @@ public class FileuploadController extends HttpServlet{
 			FileOutputStream fos=new FileOutputStream(path + File.separator + savefilename); 
 			
 			//전송된 파일을 읽어오기 위한 스트림 객체 (사용자가 전송한파일 읽어오기)
+	
 			InputStream is=part.getInputStream();
 			
 			//##파일복사
 	//		while(true) {
 	//			int n=is.read();
-	//			fos.write(n);
+	
+			//			fos.write(n);
 	//			if(n==-1) break;
 	//		}
 			

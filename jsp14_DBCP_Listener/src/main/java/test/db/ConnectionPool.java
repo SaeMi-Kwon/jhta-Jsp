@@ -12,7 +12,7 @@ import java.util.Set;
  * - DBMS와 접속된 컨넥션들을 여러개 만들어 놓고(컨넥션풀) DB와 접속할때
  * 	 사용중이지 않은 컨넥션객체를 얻어와 사용하고 작업이 끝나면
  * 	 컨넥션객체를 다시 반환한다.
- * - 성능향상을 위햐 사용한다.
+ * - 성능향상을 위해 사용한다.
  */
 public class ConnectionPool {
 	private HashMap<Connection,Boolean> h; //pool장(컨넥션풀 역할)

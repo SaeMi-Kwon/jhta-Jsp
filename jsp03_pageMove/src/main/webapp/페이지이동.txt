@@ -11,7 +11,7 @@
 			
 2. 리다이렉트방식(redirect)
   - 클라이언트가 새로 페이지를 요청한 것과 같은 방식으로 페이지가 이동됨
-  - request스코프에 담긴 값이 유지되지 않는다. (request,response가 새롭게 만들어짐)
+  - request스코프에 담긴 값이 유지되지 않는다.(request,response가 새롭게 만들어짐)
   - 이동된 url이 화면에 보인다.
   - 리다이렉트하는 방법
 	response.sendRedirect("이동할url");

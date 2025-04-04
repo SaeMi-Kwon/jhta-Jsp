@@ -13,7 +13,7 @@
 	반복실행할 문장
 </c:forEach>
  --%>
-
+ 
 <c:forEach var="i" begin="1" end="100" step="1">
 	<c:out value="${i }"/>
 </c:forEach>

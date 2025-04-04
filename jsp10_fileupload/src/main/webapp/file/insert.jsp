@@ -14,7 +14,7 @@
 	enctype="multipart/form-data"  
 	-> 인코딩방식 [기본값:application/x-www-form-urlencoded] <- 폼데이터형식
  -->
-
+	
 <form action="<%=request.getContextPath() %>/file/upload" 
 		enctype="multipart/form-data" method="post">
 	작성자<br>
